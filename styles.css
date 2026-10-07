@@ -1,0 +1,2102 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --background: #0b0d11;
+
+    --card: #14171d;
+
+    --card-light: #191d24;
+
+    --border: #282d36;
+
+    --text: #f4f4f5;
+
+    --muted: #8b929e;
+
+    --red: #e63946;
+
+    --red-dark: #b92330;
+
+    --green: #35d07f;
+
+    --blue: #4d9cff;
+
+    --orange: #ffb74d;
+
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(230, 57, 70, 0.08),
+            transparent 35%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 40px 0 70px;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.logo {
+
+    width: 65px;
+
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            #9d1d28
+        );
+
+    border-radius: 16px;
+
+    font-size: 31px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(230, 57, 70, .25);
+
+}
+
+
+.subtitle,
+.section-label {
+
+    color: var(--red);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.header h1 {
+
+    font-size: 30px;
+
+    line-height: 1.15;
+
+    margin: 4px 0;
+
+}
+
+
+.header p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    transition: .2s ease;
+
+}
+
+
+.stat-card:hover {
+
+    border-color: #363c47;
+
+    transform: translateY(-2px);
+
+}
+
+
+.stat-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+}
+
+
+.stat-icon.blue {
+
+    background: rgba(77, 156, 255, .12);
+
+}
+
+
+.stat-icon.green {
+
+    background: rgba(53, 208, 127, .12);
+
+}
+
+
+.stat-icon.red {
+
+    background: rgba(230, 57, 70, .12);
+
+}
+
+
+.stat-card span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    margin: 5px 0;
+
+}
+
+
+.stat-card small {
+
+    color: #626975;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 28px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, .18);
+
+    overflow: hidden;
+
+}
+
+
+.card-header,
+.list-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.card h2 {
+
+    font-size: 21px;
+
+    line-height: 1.2;
+
+    margin: 6px 0;
+
+}
+
+
+.card-header p,
+.list-header p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 19px;
+
+}
+
+
+.form-group label,
+.record-fields label {
+
+    display: block;
+
+    color: #d5d8dd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 13px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+
+    background: #0e1014;
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+input:hover,
+select:hover {
+
+    border-color: #353b46;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(230, 57, 70, .1);
+
+}
+
+
+input::placeholder {
+
+    color: #555b65;
+
+}
+
+
+select {
+
+    cursor: pointer;
+
+}
+
+
+option {
+
+    background: #14171d;
+
+    color: white;
+
+}
+
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+
+}
+
+
+/* =========================================
+   RECORD
+========================================= */
+
+.record-box {
+
+    padding: 20px;
+
+    background: #0e1014;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    margin-top: 5px;
+
+}
+
+
+.record-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.record-heading label {
+
+    display: block;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+}
+
+
+.record-heading span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+}
+
+
+.record-preview {
+
+    color: var(--red);
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+.record-fields {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.record-fields > div {
+
+    min-width: 0;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition:
+        .2s ease;
+
+}
+
+
+button:active {
+
+    transform: scale(.98);
+
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--red-dark)
+        );
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+}
+
+
+.btn-primary:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(230, 57, 70, .2);
+
+}
+
+
+.btn-secondary {
+
+    background: #292e36;
+
+    color: #d9dce0;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+}
+
+
+.btn-secondary:hover {
+
+    background: #343a44;
+
+}
+
+
+.btn-danger {
+
+    background: rgba(230, 57, 70, .1);
+
+    color: #ff6873;
+
+    border: 1px solid rgba(230, 57, 70, .2);
+
+    padding: 9px 13px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+}
+
+
+.btn-danger:hover {
+
+    background: rgba(230, 57, 70, .2);
+
+}
+
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
+
+.form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================
+   FILTROS
+========================================= */
+
+.filters {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.search-box {
+
+    position: relative;
+
+    min-width: 0;
+
+}
+
+
+.search-box span {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 13px;
+
+    color: #747b86;
+
+    pointer-events: none;
+
+}
+
+
+.search-box input {
+
+    padding-left: 42px;
+
+}
+
+
+/* =========================================
+   TABLA
+========================================= */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: 8px;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 800px;
+
+}
+
+
+thead {
+
+    background: #0e1014;
+
+}
+
+
+th {
+
+    text-align: left;
+
+    padding: 14px;
+
+    color: #747b86;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+
+    white-space: nowrap;
+
+}
+
+
+td {
+
+    padding: 15px 14px;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 13px;
+
+}
+
+
+tbody tr {
+
+    transition:
+        background .2s ease;
+
+}
+
+
+tbody tr:hover {
+
+    background: #191d23;
+
+}
+
+
+.fighter-name {
+
+    font-weight: 700;
+
+}
+
+
+.academy-name {
+
+    color: #b8bec7;
+
+}
+
+
+.record {
+
+    color: var(--green);
+
+    font-weight: 800;
+
+}
+
+
+.actions {
+
+    display: flex;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.action-btn {
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.edit-btn {
+
+    color: #67aaff;
+
+    background: rgba(77, 156, 255, .1);
+
+}
+
+
+.edit-btn:hover {
+
+    background: rgba(77, 156, 255, .2);
+
+}
+
+
+.delete-btn {
+
+    color: #ff6873;
+
+    background: rgba(230, 57, 70, .1);
+
+}
+
+
+.delete-btn:hover {
+
+    background: rgba(230, 57, 70, .2);
+
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty-message {
+
+    text-align: center;
+
+    padding: 55px 20px;
+
+    color: var(--muted);
+
+}
+
+
+.empty-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.empty-message h3 {
+
+    color: white;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================
+   TABLE FOOTER
+========================================= */
+
+.table-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border-top: 1px solid var(--border);
+
+    margin-top: 10px;
+
+    padding-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.table-footer strong {
+
+    color: white;
+
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .75);
+
+    backdrop-filter: blur(5px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 999;
+
+}
+
+
+.modal-overlay.active {
+
+    display: flex;
+
+}
+
+
+.modal {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #171a20;
+
+    border: 1px solid #30353f;
+
+    border-radius: 15px;
+
+    padding: 27px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .55);
+
+    animation:
+        modalIn .2s ease;
+
+}
+
+
+@keyframes modalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.modal-header h2 {
+
+    margin-top: 5px;
+
+}
+
+
+.modal-close {
+
+    width: 35px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: #252a32;
+
+    color: #aaa;
+
+    font-size: 23px;
+
+}
+
+
+.modal-close:hover {
+
+    color: white;
+
+    background: #343a43;
+
+}
+
+
+.modal-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================
+   NOTIFICACIÓN
+========================================= */
+
+.notification {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    max-width: calc(100vw - 50px);
+
+    background: #1b2027;
+
+    border-left: 4px solid var(--green);
+
+    color: white;
+
+    padding: 15px 20px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, .4);
+
+    transform:
+        translateX(150%);
+
+    transition: .3s;
+
+    z-index: 2000;
+
+    font-size: 13px;
+
+}
+
+
+.notification.show {
+
+    transform:
+        translateX(0);
+
+}
+
+
+/* =========================================
+   MATCHMAKING
+========================================= */
+
+.matchmaking-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        80px
+        minmax(0, 1fr);
+
+    gap: 20px;
+
+    align-items: center;
+
+}
+
+
+.fighter-selection {
+
+    position: relative;
+
+    min-width: 0;
+
+    background: #0e1014;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.fighter-selection:focus-within {
+
+    border-color: #3b424e;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(230, 57, 70, .05);
+
+}
+
+
+.fighter-selection label {
+
+    display: block;
+
+    color: #d5d8dd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.corner {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+}
+
+
+.red-corner {
+
+    background: rgba(230, 57, 70, .15);
+
+    color: #ff6570;
+
+}
+
+
+.blue-corner {
+
+    background: rgba(77, 156, 255, .15);
+
+    color: #65a9ff;
+
+}
+
+
+.versus {
+
+    width: 60px;
+
+    height: 60px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--red-dark)
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 25px
+        rgba(230, 57, 70, .2);
+
+}
+
+
+.selected-fighter {
+
+    min-height: 95px;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+    background: #151920;
+
+    border: 1px solid #242932;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.selected-fighter strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+.selected-fighter span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.match-warning {
+
+    min-height: 20px;
+
+    margin-top: 18px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    text-align: center;
+
+}
+
+
+.match-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+/* =========================================
+   FIGHT CARD / CARTELERA
+========================================= */
+
+.fight-card-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.fight-card {
+
+    display: grid;
+
+    grid-template-columns:
+        65px
+        minmax(0, 1fr)
+        90px
+        minmax(0, 1fr)
+        180px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #0e1014;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+
+.fight-card:hover {
+
+    background: #111419;
+
+    border-color: #353b46;
+
+}
+
+
+.fight-number {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.fight-number span {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+
+}
+
+
+.fight-number strong {
+
+    color: var(--red);
+
+    font-size: 22px;
+
+}
+
+
+.fighter-side {
+
+    min-width: 0;
+
+    padding: 5px;
+
+}
+
+
+.fighter-side.red {
+
+    border-left: 3px solid var(--red);
+
+    padding-left: 12px;
+
+}
+
+
+.fighter-side.blue {
+
+    border-left: 3px solid var(--blue);
+
+    padding-left: 12px;
+
+}
+
+
+.fighter-side strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+.fighter-side span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 3px;
+
+}
+
+
+.fight-vs {
+
+    text-align: center;
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+}
+
+
+.fight-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.order-btn {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    border-radius: 6px;
+
+    background: #252a31;
+
+    color: #cbd0d7;
+
+    font-weight: bold;
+
+}
+
+
+.order-btn:hover {
+
+    background: #343a44;
+
+    color: white;
+
+}
+
+
+.order-btn:disabled {
+
+    opacity: .35;
+
+    cursor: not-allowed;
+
+}
+
+
+.remove-fight-btn {
+
+    height: 30px;
+
+    padding: 0 10px;
+
+    border-radius: 6px;
+
+    color: #ff6873;
+
+    background: rgba(230, 57, 70, .1);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.remove-fight-btn:hover {
+
+    background: rgba(230, 57, 70, .2);
+
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 9px;
+
+    height: 9px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #0b0d11;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #303640;
+
+    border-radius: 10px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #424955;
+
+}
+
+
+/* =========================================
+   SELECCIÓN DE TEXTO
+========================================= */
+
+::selection {
+
+    background: rgba(230, 57, 70, .35);
+
+    color: white;
+
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .filters {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .matchmaking-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .versus {
+
+        width: 45px;
+
+        height: 45px;
+
+    }
+
+
+    .fight-card {
+
+        grid-template-columns:
+            55px
+            minmax(0, 1fr);
+
+    }
+
+
+    .fight-vs {
+
+        display: none;
+
+    }
+
+
+    .fight-actions {
+
+        grid-column: 1 / -1;
+
+        justify-content: flex-start;
+
+        padding-top: 5px;
+
+        border-top: 1px solid var(--border);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - 800PX
+========================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+
+        width: 94%;
+
+        padding-top: 25px;
+
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
+
+    .record-fields {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .form-actions,
+    .modal-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .form-actions button,
+    .modal-actions button {
+
+        width: 100%;
+
+    }
+
+
+    .header {
+
+        align-items: flex-start;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .header p {
+
+        font-size: 13px;
+
+    }
+
+
+    .card {
+
+        padding: 20px;
+
+    }
+
+
+    .table-footer {
+
+        align-items: stretch;
+
+        flex-direction: column;
+
+    }
+
+
+    .table-footer .btn-danger {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - 600PX
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width: 95%;
+
+        padding:
+            20px 0
+            45px;
+
+    }
+
+
+    .header {
+
+        gap: 12px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .logo {
+
+        width: 52px;
+
+        height: 52px;
+
+        border-radius: 13px;
+
+        font-size: 25px;
+
+    }
+
+
+    .subtitle,
+    .section-label {
+
+        font-size: 10px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 20px;
+
+    }
+
+
+    .header p {
+
+        font-size: 12px;
+
+    }
+
+
+    .stats-grid {
+
+        gap: 12px;
+
+    }
+
+
+    .stat-card {
+
+        padding: 17px;
+
+    }
+
+
+    .stat-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 20px;
+
+    }
+
+
+    .stat-card strong {
+
+        font-size: 24px;
+
+    }
+
+
+    .card {
+
+        padding: 17px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 18px;
+
+    }
+
+
+    .record-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .record-preview {
+
+        font-size: 18px;
+
+    }
+
+
+    .match-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .match-actions button {
+
+        width: 100%;
+
+    }
+
+
+    .fighter-selection {
+
+        padding: 16px;
+
+    }
+
+
+    .fight-card {
+
+        padding: 15px;
+
+        grid-template-columns:
+            45px
+            minmax(0, 1fr);
+
+    }
+
+
+    .fight-number strong {
+
+        font-size: 19px;
+
+    }
+
+
+    .fighter-side strong {
+
+        font-size: 14px;
+
+    }
+
+
+    .fight-actions {
+
+        gap: 6px;
+
+    }
+
+
+    .order-btn {
+
+        width: 34px;
+
+        height: 34px;
+
+    }
+
+
+    .remove-fight-btn {
+
+        height: 34px;
+
+    }
+
+
+    .modal-overlay {
+
+        padding: 10px;
+
+    }
+
+
+    .modal {
+
+        padding: 20px;
+
+        max-height: 94vh;
+
+        border-radius: 12px;
+
+    }
+
+
+    .modal-header {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .notification {
+
+        right: 12px;
+
+        bottom: 12px;
+
+        max-width:
+            calc(100vw - 24px);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - 400PX
+========================================= */
+
+@media (max-width: 400px) {
+
+    .header {
+
+        align-items: center;
+
+    }
+
+
+    .logo {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 21px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 18px;
+
+    }
+
+
+    .card {
+
+        padding: 14px;
+
+    }
+
+
+    .stat-card {
+
+        gap: 12px;
+
+    }
+
+
+    .fight-card {
+
+        grid-template-columns:
+            38px
+            minmax(0, 1fr);
+
+        gap: 10px;
+
+    }
+
+
+    .fight-actions {
+
+        grid-column: 1 / -1;
+
+    }
+
+}

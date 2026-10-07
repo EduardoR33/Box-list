@@ -1,0 +1,915 @@
+<!DOCTYPE html> <html lang="es"> <head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Fight Manager</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head> <body> <div class="container">
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+
+<header class="header">
+
+    <div class="logo">
+        🥊
+    </div>
+
+    <div class="header-info">
+
+        <span class="subtitle">
+            FIGHT MANAGER
+        </span>
+
+        <h1>
+            Registro de Peleadores
+        </h1>
+
+        <p>
+            Administra academias y estadísticas de tus peleadores.
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================================= -->
+<!-- ESTADÍSTICAS -->
+<!-- ========================================= -->
+
+<section class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+            👥
+        </div>
+
+        <div>
+
+            <span>
+                Peleadores
+            </span>
+
+            <strong id="totalFighters">
+                0
+            </strong>
+
+            <small>
+                Registrados
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+            🏆
+        </div>
+
+        <div>
+
+            <span>
+                Victorias
+            </span>
+
+            <strong id="totalWins">
+                0
+            </strong>
+
+            <small>
+                Totales
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon red">
+            ⚔️
+        </div>
+
+        <div>
+
+            <span>
+                Derrotas
+            </span>
+
+            <strong id="totalLosses">
+                0
+            </strong>
+
+            <small>
+                Totales
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FORMULARIO DE REGISTRO -->
+<!-- ========================================= -->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <span class="section-label">
+                NUEVO REGISTRO
+            </span>
+
+            <h2>
+                Registrar peleador
+            </h2>
+
+            <p>
+                Agrega un nuevo competidor al sistema.
+            </p>
+
+        </div>
+
+    </div>
+
+    <form id="fighterForm">
+
+        <!-- ACADEMIA -->
+
+        <div class="form-group">
+
+            <label for="academy">
+                Nombre de la academia
+            </label>
+
+            <input
+                type="text"
+                id="academy"
+                placeholder="Ej. Academia MMA"
+                autocomplete="off"
+                required
+            >
+
+        </div>
+
+        <!-- PELEADOR -->
+
+        <div class="form-group">
+
+            <label for="fighter">
+                Nombre del peleador
+            </label>
+
+            <input
+                type="text"
+                id="fighter"
+                placeholder="Ej. Juan Pérez"
+                autocomplete="off"
+                required
+            >
+
+        </div>
+
+        <!-- EDAD / PESO -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="age">
+                    Edad
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="24"
+                    min="10"
+                    max="100"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="weight">
+                    Peso (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    placeholder="70.5"
+                    min="20"
+                    max="300"
+                    step="0.1"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <!-- RECORD -->
+
+        <div class="record-box">
+
+            <div class="record-heading">
+
+                <div>
+
+                    <label>
+                        Récord profesional
+                    </label>
+
+                    <span>
+                        Victorias / Derrotas / Empates
+                    </span>
+
+                </div>
+
+                <div
+                    class="record-preview"
+                    id="recordPreview"
+                >
+                    0 - 0 - 0
+                </div>
+
+            </div>
+
+            <div class="record-fields">
+
+                <div>
+
+                    <label for="wins">
+                        Victorias
+                    </label>
+
+                    <input
+                        type="number"
+                        id="wins"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label for="losses">
+                        Derrotas
+                    </label>
+
+                    <input
+                        type="number"
+                        id="losses"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label for="draws">
+                        Empates
+                    </label>
+
+                    <input
+                        type="number"
+                        id="draws"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTONES -->
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="btn-secondary"
+                id="clearButton"
+            >
+                Limpiar
+            </button>
+
+            <button
+                type="submit"
+                class="btn-primary"
+            >
+                + Registrar peleador
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- ========================================= -->
+<!-- LISTADO DE PELEADORES -->
+<!-- ========================================= -->
+
+<section class="card">
+
+    <div class="list-header">
+
+        <div>
+
+            <span class="section-label">
+                BASE DE DATOS
+            </span>
+
+            <h2>
+                Peleadores registrados
+            </h2>
+
+            <p>
+                Busca y administra los registros.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FILTROS -->
+
+    <div class="filters">
+
+        <div class="search-box">
+
+            <span>
+                🔎
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Buscar peleador o academia..."
+            >
+
+        </div>
+
+        <select id="academyFilter">
+
+            <option value="">
+                Todas las academias
+            </option>
+
+        </select>
+
+        <select id="weightFilter">
+
+            <option value="">
+                Todos los pesos
+            </option>
+
+            <option value="50">
+                Hasta 50 kg
+            </option>
+
+            <option value="60">
+                50 - 60 kg
+            </option>
+
+            <option value="70">
+                60 - 70 kg
+            </option>
+
+            <option value="80">
+                70 - 80 kg
+            </option>
+
+            <option value="90">
+                80 - 90 kg
+            </option>
+
+            <option value="91">
+                Más de 90 kg
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- TABLA -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Academia
+                    </th>
+
+                    <th>
+                        Peleador
+                    </th>
+
+                    <th>
+                        Edad
+                    </th>
+
+                    <th>
+                        Peso
+                    </th>
+
+                    <th>
+                        Récord
+                    </th>
+
+                    <th>
+                        Acciones
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="fightersTable">
+            </tbody>
+
+        </table>
+
+        <!-- SIN RESULTADOS -->
+
+        <div
+            class="empty-message"
+            id="emptyMessage"
+        >
+
+            <div class="empty-icon">
+                🥊
+            </div>
+
+            <h3>
+                No hay peleadores
+            </h3>
+
+            <p>
+                Registra un peleador o modifica los filtros.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="table-footer">
+
+        <span>
+            Mostrando
+            <strong id="visibleCount">
+                0
+            </strong>
+            registros
+        </span>
+
+        <button
+            type="button"
+            class="btn-danger"
+            id="deleteAllButton"
+        >
+            🗑 Eliminar todos
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- MATCHMAKING -->
+<!-- ========================================= -->
+
+<section class="card">
+
+    <div class="list-header">
+
+        <div>
+
+            <span class="section-label">
+                MATCHMAKING
+            </span>
+
+            <h2>
+                Crear enfrentamiento
+            </h2>
+
+            <p>
+                Selecciona dos peleadores para crear una pelea.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="matchmaking-grid">
+
+        <!-- PELEADOR A -->
+
+        <div class="fighter-selection">
+
+            <div class="corner red-corner">
+                A
+            </div>
+
+            <div>
+
+                <label for="fighterA">
+                    Peleador 1
+                </label>
+
+                <select id="fighterA">
+
+                    <option value="">
+                        Seleccionar peleador
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div
+                class="selected-fighter"
+                id="fighterAPreview"
+            >
+
+                <span>
+                    Selecciona un peleador
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- VS -->
+
+        <div class="versus">
+            VS
+        </div>
+
+        <!-- PELEADOR B -->
+
+        <div class="fighter-selection">
+
+            <div class="corner blue-corner">
+                B
+            </div>
+
+            <div>
+
+                <label for="fighterB">
+                    Peleador 2
+                </label>
+
+                <select id="fighterB">
+
+                    <option value="">
+                        Seleccionar peleador
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div
+                class="selected-fighter"
+                id="fighterBPreview"
+            >
+
+                <span>
+                    Selecciona un peleador
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- AVISO -->
+
+    <div
+        class="match-warning"
+        id="matchWarning"
+    ></div>
+
+    <!-- BOTONES -->
+
+    <div class="match-actions">
+
+        <button
+            type="button"
+            class="btn-secondary"
+            id="clearMatchButton"
+        >
+            Limpiar selección
+        </button>
+
+        <button
+            type="button"
+            class="btn-primary"
+            id="createMatchButton"
+        >
+            ⚔ Crear pelea
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CARTELERA -->
+<!-- ========================================= -->
+
+<section class="card">
+
+    <div class="list-header">
+
+        <div>
+
+            <span class="section-label">
+                CARTELERA
+            </span>
+
+            <h2>
+                Peleas programadas
+            </h2>
+
+            <p>
+                Organiza el orden de los enfrentamientos.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div
+        class="fight-card-list"
+        id="fightCardList"
+    ></div>
+
+    <div
+        class="empty-message"
+        id="emptyFightCard"
+    >
+
+        <div class="empty-icon">
+            ⚔️
+        </div>
+
+        <h3>
+            No hay peleas programadas
+        </h3>
+
+        <p>
+            Selecciona dos peleadores para crear el primer enfrentamiento.
+        </p>
+
+    </div>
+
+</section>
+
+</div> <!-- ========================================= --> <!-- MODAL EDITAR PELEADOR --> <!-- ========================================= --> <div class="modal-overlay" id="editModal" >
+<div class="modal">
+
+    <!-- HEADER -->
+
+    <div class="modal-header">
+
+        <div>
+
+            <span class="section-label">
+                EDITAR REGISTRO
+            </span>
+
+            <h2>
+                Editar peleador
+            </h2>
+
+        </div>
+
+        <button
+            type="button"
+            class="modal-close"
+            id="closeModal"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <!-- FORMULARIO -->
+
+    <form id="editForm">
+
+        <input
+            type="hidden"
+            id="editId"
+        >
+
+        <!-- ACADEMIA -->
+
+        <div class="form-group">
+
+            <label for="editAcademy">
+                Academia
+            </label>
+
+            <input
+                type="text"
+                id="editAcademy"
+                required
+            >
+
+        </div>
+
+        <!-- PELEADOR -->
+
+        <div class="form-group">
+
+            <label for="editName">
+                Peleador
+            </label>
+
+            <input
+                type="text"
+                id="editName"
+                required
+            >
+
+        </div>
+
+        <!-- EDAD / PESO -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="editAge">
+                    Edad
+                </label>
+
+                <input
+                    type="number"
+                    id="editAge"
+                    min="10"
+                    max="100"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="editWeight">
+                    Peso (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="editWeight"
+                    min="20"
+                    max="300"
+                    step="0.1"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <!-- RECORD -->
+
+        <div class="record-box">
+
+            <div class="record-heading">
+
+                <div>
+
+                    <label>
+                        Récord profesional
+                    </label>
+
+                    <span>
+                        Victorias / Derrotas / Empates
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="record-fields">
+
+                <div>
+
+                    <label for="editWins">
+                        Victorias
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editWins"
+                        min="0"
+                        value="0"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label for="editLosses">
+                        Derrotas
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editLosses"
+                        min="0"
+                        value="0"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label for="editDraws">
+                        Empates
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editDraws"
+                        min="0"
+                        value="0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTONES -->
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="btn-secondary"
+                id="cancelEdit"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="submit"
+                class="btn-primary"
+            >
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</div> <!-- ========================================= --> <!-- NOTIFICACIÓN --> <!-- ========================================= --> <div class="notification" id="notification" >
+<span id="notificationMessage"></span>
+
+</div> <!-- ========================================= --> <!-- JAVASCRIPT --> <!-- ========================================= --> <script src="script.js"></script> </body> </html>
